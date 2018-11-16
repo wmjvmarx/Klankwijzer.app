@@ -14,3 +14,44 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.bullet-algemeen{
+	background-color: color($colors, algemeen);
+}
+
+.bullet-majorette-twirl{
+	background-color: color($colors, majorette-twirl);
+}
+
+.bullet-blaasmuziek{
+	background-color: color($colors, blaasmuziek);
+}
+
+.bullet-show-mars-percussie{
+	background-color: color($colors, show-mars-percussie);
+}
+
+.bullet-color-guard{
+	background-color: color($colors, color-guard);
+}
+
+.bullet-accordeon-en-mondharmonica{
+	background-color: color($colors, accordeon-en-mondharmonica);
+}
+
+.titlePart{
+	color: color($colors, secondary);
+}
+
+.adWrapper{
+	width: 100%;
+	padding: 16px 16px 0;
+
+	div{
+		font-size: 0.6em;
+		color: #999999;
+	}
+	img{
+		width: 100%;	
+	}
+}

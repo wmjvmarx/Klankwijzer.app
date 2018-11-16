@@ -1,0 +1,30 @@
+page-agenda {
+	.articleImage{
+		width: 40%;
+		float: left;
+		padding-right: 10px;
+	}
+
+	.articleInfo{
+		width: 60%;
+		float: right;
+		padding-left: 10px;
+	}
+
+	.articleLocation, .articleDate{
+		font-size: 60%;
+	}
+
+	.articleCategory{
+		width: 100%;
+		height: 0.5em;
+		margin-bottom: 5px;
+	}
+
+	.category-bullet{
+		height: 0.5em;
+		width: 33%;
+		border-radius: 0 5px 5px 0;
+		float: left;
+	}
+}

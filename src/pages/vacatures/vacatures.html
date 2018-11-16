@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar color=primary>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>vacatures</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="adWrapper" *ngIf="ads !== undefined && ads.leader !== undefined">
+    <div>Advertentie</div>
+    <img src="https://beta.klankwijzer.nl/media/advertenties/{{ads.leader.advertentie}}" />
+  </div>
+
+	<ion-list>
+    <ion-item no-lines *ngFor="let post of posts" (click)="readVacatureArticle(post.identifier)">
+      <div *ngIf="post.is_sticky == 1; else normal" class="sticky">
+        <img src="https://beta.klankwijzer.nl/media/{{post.afbeelding}}" />
+        <div class="sticky_title_wrapper">
+          <div class="articleCategory">
+            <span class="category-bullet bullet-{{post.categorie_slug}}"></span>
+          </div>
+          <h2 text-wrap [innerHtml]="post.titel"></h2>
+        </div>
+      </div>
+      <ng-template #normal>
+        <div class="articleList">
+          <div class="articleImage">
+            <img src="https://beta.klankwijzer.nl/media/{{post.afbeelding}}" />
+          </div>
+          <div class="articleInfo">
+            <div class="articleCategory">
+              <span class="category-bullet bullet-{{post.categorie_slug}}"></span>
+            </div>
+            <h2 text-wrap [innerHtml]="post.titel"></h2>
+          </div>
+        </div>
+      </ng-template>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < nPages">
+    <ion-infinite-scroll-content loadingText="Meer vacatures wordt geladen...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

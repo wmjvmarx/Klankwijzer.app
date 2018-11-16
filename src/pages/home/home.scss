@@ -1,3 +1,102 @@
 page-home {
+	.list{
+		margin-bottom: 0;
+	}
+
+	.sticky{
+		position: relative;
+		margin-right: -16px;
+		margin-top: -16px;
+	}
+
+	.sticky img{
+		max-height: 100%;
+	}
+
+	.sticky_title_wrapper{
+		position: absolute;
+		bottom: 4px;
+		padding: 15px;
+		color: #FFFFFF;
+		font-weight: 600;
+		width: 100%;
+		background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%);
+		background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+		background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+	}
+
+	.sticky h2{
+		color: #ffffff;
+		font-weight: bold;
+	}
+
+	.articleImage{
+		width: 33%;
+		float: left;
+		padding-right: 10px;
+	}
+
+	.articleInfo{
+		width: 67%;
+		float: right;
+		padding-left: 10px;
+	}
+
+	.articleCategory{
+		width: 100%;
+		height: 0.5em;
+		margin-bottom: 5px;
+	}
+
+	.category-bullet{
+		height: 0.5em;
+		width: 33%;
+		border-radius: 0 5px 5px 0;
+		float: left;
+	}
+
+	.vacatureWrapper{
+		padding: 0 16px;
+	}
+
+	.vacatureHeader{
+		border-bottom: 3px solid color($colors, primary);
+		margin-bottom: 3px;
+		font-size: 1.8rem;
+	}
+
+	.vacatures{
+		border-top: 3px solid color($colors, secondary);
+		float: left;
+		padding-top: 10px;
+		margin-bottom: 16px;
+	}
+
+	.vacature{
+		width: 50%;
+		
+		h3{
+			margin: 0.5rem 0 1rem;
+			font-size: 1.4rem
+		}
+	}
+
+	.vacature:nth-child(odd){
+		padding-right: 8px;
+		float: left;
+	}
+
+	.vacature:nth-child(even){
+		padding-left: 8px;
+		float: right;
+	}
+
+	.vacatureImage{
+		margin-bottom: 5px;
+		img{
+			max-width: 100%;
+		}
+	}
 
 }

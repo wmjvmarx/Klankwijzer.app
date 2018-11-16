@@ -1,0 +1,39 @@
+page-nieuws-details {
+
+	.articleWrapper{
+		padding: 16px;
+	}
+
+	.articleCategory{
+		width: 100%;
+		height: 1em;
+		margin-bottom: 5px;
+	}
+
+	.category-bullet{
+		height: 1rem;
+		width: 67%;
+		border-radius: 0 5px 5px 0;
+		float: left;
+	}
+
+	h1{
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	.articleDate{
+		color: #999999;
+		margin-bottom: 5px;
+		font-size: 0.9rem;
+	}
+
+	.articleIntro{
+		font-weight: bold;
+	}
+	
+	.articleContent{
+
+	}
+	
+}

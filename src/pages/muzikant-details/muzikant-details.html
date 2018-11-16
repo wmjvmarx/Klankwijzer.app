@@ -1,0 +1,58 @@
+<ion-header>
+
+    <ion-navbar color=primary>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+    <div *ngIf="article" class="article">
+      
+      <div class="articleWrapper">
+        <div class="articleCategory">
+              <span class="category-bullet bullet-{{article.categorie_slug}}"></span>
+        </div>
+        <h1 [innerHtml]="article.titel"></h1>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+                <p>
+                  <strong>Naam</strong><br/>
+                  <span [innerHtml]="article.naam"></span>
+                </p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col>
+                <p>
+                  <strong>E-mail</strong><br/>
+                  <span [innerHtml]="article.email"></span>
+                </p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+                <p>
+                  <strong>Instrument</strong><br/>
+                  <span [innerHtml]="article.instrument"></span><br/>
+                  <span>Speelniveau: </span><span [innerHtml]="article.niveau"></span>
+                </p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+                <p>
+                  <strong>Woonplaats</strong><br/>
+                  <span [innerHtml]="article.woonplaats +' (' + article.provincie + ')'"></span><br/>
+                  <span>Maximale reisafstand: </span><span [innerHtml]="article.reisafstand"></span>
+                </p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div class="articleContent" [innerHtml]="article.omschrijving"></div>
+      </div>
+    </div>
+  
+  </ion-content>
+  

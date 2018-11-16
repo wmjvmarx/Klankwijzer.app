@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar color=primary>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<div *ngIf="article" class="article">
+		<div class="articleImage">
+			<img src="https://beta.klankwijzer.nl/media/{{article.afbeelding}}" alt="{{article.titel_stripped}}" />
+		</div>
+		<div class="articleWrapper">
+			<div class="articleCategory">
+		        <span class="category-bullet bullet-{{article.categorie_slug}}"></span>
+			</div>
+			<h1 [innerHtml]="article.titel_stripped"></h1>
+			<div class="articleDate">{{article.publiceren_op}}</div>
+			<div class="articleIntro" [innerHtml]="article.intro"></div>
+			<div class="articleContent" [innerHtml]="article.body"></div>
+		</div>
+	</div>
+
+</ion-content>

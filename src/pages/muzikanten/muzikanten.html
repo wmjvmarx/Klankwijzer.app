@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-navbar color=primary>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>muzikantenpool</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content>
+    <div class="adWrapper" *ngIf="ads !== undefined && ads.leader !== undefined">
+      <div>Advertentie</div>
+      <img src="https://beta.klankwijzer.nl/media/advertenties/{{ads.leader.advertentie}}" />
+    </div>
+
+    <ion-list>
+      <ion-item no-lines *ngFor="let post of posts" (click)="readMuzikantArticle(post)">
+        <div class="articleList">
+          <div class="articleInfo">
+            <div class="articleCategory">
+              <span class="category-bullet bullet-{{post.categorie_slug}}"></span>
+            </div>
+            <h2 text-wrap [innerHtml]="post.titel"></h2>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                    <p>
+                      <strong>Naam</strong><br/>
+                      <span [innerHtml]="post.naam"></span>
+                    </p>
+                </ion-col>
+                <ion-col>
+                    <p>
+                      <strong>Instrument</strong><br/>
+                      <span [innerHtml]="post.instrument"></span>
+                    </p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                    <p>
+                      <strong>Woonplaats</strong><br/>
+                      <span [innerHtml]="post.woonplaats +' (' + post.provincie + ')'"></span>
+                    </p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < nPages">
+      <ion-infinite-scroll-content loadingText="Meer nieuws wordt geladen...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>
+  

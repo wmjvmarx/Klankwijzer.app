@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar color=primary>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<div *ngIf="article" class="article">
+		<div class="articleImage">
+			<img src="https://beta.klankwijzer.nl/media/{{article.afbeelding}}" alt="{{article.titel_stripped}}" />
+		</div>
+		<div class="articleWrapper">
+			<div class="articleCategory">
+		        <span class="category-bullet bullet-{{article.categorie_slug}}"></span>
+			</div>
+			<h1 [innerHtml]="article.titel_stripped"></h1>
+			<div class="articleDate">Beschikbaar sinds: {{article.gemaakt_op}}</div>
+			<div class="articleClose">Sluiting aanmeldingstermijn: {{article.sluitingsdatum}}</div>
+			<div class="articleInfo">
+				<table>
+					<tr>
+						<td valign="top">Vereniging:</td><td><span [innerHtml]="article.vereniging"></span> - <span [innerHtml]="article.vestigingsplaats"></span> ({{article.provincie}})</td>
+					</tr>
+					<tr>
+						<td>Speelniveau:</td><td><span [innerHtml]="article.niveau"></span></td>
+					</tr>
+					<tr>
+						<td>Repetitie op:</td><td><span [innerHtml]="article.repetitie_dag"></span> - <span [innerHtml]="article.repetitie_dagdeel"></span></td>
+					</tr>
+				</table>
+			</div>
+			<div class="articleContent" [innerHtml]="article.omschrijving"></div>
+		</div>
+	</div>
+
+</ion-content>

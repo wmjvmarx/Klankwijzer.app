@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar color=primary>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<ng-container *ngIf="stemronde">
+		<h2 [innerHtml]="stemronde.titel"></h2>
+		<div [innerHtml]="stemronde.omschrijving"></div>
+	</ng-container>
+
+	<ng-container *ngIf="opties && vote !== undefined">
+
+		<ng-container *ngIf="!vote">
+				<ion-card *ngFor="let optie of opties" (click)="makeVote(optie.identifier)">
+						<ion-card-content>
+							<span [innerHtml]="optie.optie"></span>
+						</ion-card-content>
+					</ion-card>
+		</ng-container>
+
+
+			
+	</ng-container>
+
+	<ng-container *ngIf="vote">
+		<ng-container *ngFor="let optie of opties">
+
+				<ion-card  *ngIf="optie.identifier === vote" class="voted" (click)="unVote()">
+					<ion-card-content>
+						<span [innerHtml]="optie.optie"></span>
+					</ion-card-content>
+				</ion-card>
+				
+				<ion-card *ngIf="optie.identifier !== vote" >
+					<ion-card-content>
+						<span [innerHtml]="optie.optie"></span>
+					</ion-card-content>
+				</ion-card>
+		</ng-container>	
+	</ng-container>
+
+</ion-content>

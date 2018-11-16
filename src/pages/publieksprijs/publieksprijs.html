@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color=primary>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>KW <span class="titlePart">interactief</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	
+	<ion-card *ngIf="stemronde === undefined">
+		<ion-card-content>
+				<div style="text-align: center;"><ion-spinner></ion-spinner></div>
+				<p style="text-align: center;">Controleren op actieve stemronde...</p>
+		</ion-card-content>
+	</ion-card>
+
+	<ng-container *ngIf="stemronde !== undefined">
+		<ion-card *ngIf="stemronde; else geen_stemronde" class="stemronde" (click)="stemStemronde(stemronde.identifier)">
+			<ion-card-header>
+					{{stemronde.titel}}
+				</ion-card-header>
+				<ion-card-content>{{stemronde.subtitel}}</ion-card-content>
+		</ion-card>
+		<ng-template #geen_stemronde>
+			<ion-card class="geen_stemronde">
+					<ion-card-content>Er is op dit moment geen stemronde actief</ion-card-content>
+			</ion-card>
+		</ng-template>
+	</ng-container>
+
+	<div class="adWrapper" *ngIf="ads !== undefined && ads.leader !== undefined">
+		<div>Advertentie</div>
+		<img src="https://beta.klankwijzer.nl/media/advertenties/{{ads.leader.advertentie}}" />
+	</div>
+
+	<div class="ppOmschrijving">
+			<h3>Verhoog de betrokkenheid met KW Interactief</h3>
+			<p>Voeg een extra dimensie toe aan je concours of festival door het publiek te laten stemmen voor een publieksprijs. Verhoog als muziekbond of doelgroep de betrokkenheid van je muzikanten door ze een prikkelende stelling voor te leggen. Peil de mening van de achterban aan de hand van een enquête. Versterk de beleving door muzikanten en supporters in de aanloop naar een wedstrijd of kampioenschap de uitslag te laten voorspellen. KW Interactief biedt allerlei interactieve mogelijkheden om de betrokkenheid van spelers en publiek bij je evenement te vergroten. Deze service wordt door KNMO Klankwijzer gratis aangeboden aan bonden, doelgroepen en festivalorganisaties. Informeer naar de mogelijkheden via <a href="mailto:redactie@klankwijzer.nl">redactie@klankwijzer.nl</a></p>
+	</div>
+</ion-content>

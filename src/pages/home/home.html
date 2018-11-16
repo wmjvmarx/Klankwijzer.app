@@ -1,18 +1,66 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color=primary>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>klank<span class="titlePart">wijzer</span></ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
+  <div class="adWrapper" *ngIf="ads !== undefined && ads.leader !== undefined">
+    <div>Advertentie</div>
+    <img src="https://beta.klankwijzer.nl/media/advertenties/{{ads.leader.advertentie}}" />
+  </div>
+  <ion-list>
+    <ion-item no-lines *ngFor="let post of posts" (click)="readNieuwsArticle(post.identifier)">
+      <div *ngIf="post.is_sticky == 1; else normal" class="sticky">
+        <img src="https://beta.klankwijzer.nl/media/{{post.afbeelding}}" />
+        <div class="sticky_title_wrapper">
+          <div class="articleCategory">
+            <span class="category-bullet bullet-{{post.categorie_slug}}"></span>
+          </div>
+          <h2 text-wrap [innerHtml]="post.titel"></h2>
+        </div>
+      </div>
+      <ng-template #normal>
+        <div class="articleList">
+          <div class="articleImage">
+            <img src="https://beta.klankwijzer.nl/media/{{post.afbeelding}}" />
+          </div>
+          <div class="articleInfo">
+            <div class="articleCategory">
+              <span class="category-bullet bullet-{{post.categorie_slug}}"></span>
+            </div>
+            <h2 text-wrap [innerHtml]="post.titel"></h2>
+          </div>
+        </div>
+      </ng-template>
+    </ion-item>
+  </ion-list>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <div class="adWrapper" *ngIf="ads !== undefined && ads.nieuws !== undefined">
+      <div>Advertentie</div>
+      <img src="https://beta.klankwijzer.nl/media/advertenties/{{ads.nieuws.advertentie}}" />
+    </div>
+  
+  <div class="vacatureWrapper">
+    <h3 class="vacatureHeader">VACATURES</h3>
+    <div class="vacatures">
+      <div class="vacature" *ngFor="let vacature of vacatures" (click)="readVacatureArticle(vacature.identifier)">
+        <div class="vacatureImage">
+          <img src="https://beta.klankwijzer.nl/media/{{vacature.afbeelding}}" />
+        </div>
+        <div class="articleCategory">
+          <span class="category-bullet bullet-{{vacature.categorie_slug}}"></span>
+        </div>
+        <h3 text-wrap [innerHtml]="vacature.titel"></h3>
+      </div>
+    </div>
+  </div>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <div class="adWrapper" *ngIf="ads !== undefined && ads.vacatures !== undefined">
+      <div>Advertentie</div>
+      <img src="https://beta.klankwijzer.nl/media/advertenties/{{ads.vacatures.advertentie}}" />
+  </div>
 </ion-content>
